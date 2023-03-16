@@ -14,6 +14,9 @@ import com.youxuegu.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * @author YoVinchen
+ */
 public class SplashActivity extends AppCompatActivity {
 
     private TextView tv_version;
