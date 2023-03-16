@@ -10,16 +10,12 @@ import android.text.TextUtils;
 public class UtilsHelper {
     /**
      * 判断SharedPreferences文件中是否存在要保存的用户名
-     *
-     * @param context
-     * @param userName
-     * @return
      */
     public static boolean isExistUserName(Context context, String userName) {
         boolean has_userName = false;
         SharedPreferences sp = context.getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         String spPsw = sp.getString(userName, "");
-        if (TextUtils.isEmpty(spPsw)) {
+        if (!TextUtils.isEmpty(spPsw)) {
             has_userName = true;
         }
         return has_userName;
@@ -34,7 +30,6 @@ public class UtilsHelper {
         SharedPreferences.Editor editor = sp.edit();
         //将用户名和密码封装到编辑器对象editor中
         editor.putString(userName, md5Psw);
-        //提交保存信息
-        editor.commit();
+        editor.commit();//提交保存信息
     }
 }
